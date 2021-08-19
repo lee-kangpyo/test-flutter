@@ -8,6 +8,7 @@ void main() {
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState(){
+    print("createState");
     return _MyApp();
   }
 }
@@ -21,9 +22,23 @@ class MyApp extends StatefulWidget {
 class _MyApp extends State<MyApp> {
   var switchValue = false;
   String test = 'hello';
+  Color _color = Colors.blue;
+
+  @override
+  void initState() {
+    super.initState();
+    print("initState");
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print("didChangeDependencies");
+  }
 
   @override
   Widget build(BuildContext context) {
+    print("build");
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -32,13 +47,23 @@ class _MyApp extends State<MyApp> {
       darkTheme: ThemeData.light(),
       home: Scaffold(
         body:Center(
-          child:Switch(
-            value:switchValue,
-            onChanged: (value){
-              setState(() {
-                print(value);
-                switchValue = value;
-              });
+          child:ElevatedButton(
+            child: Text('$test'),
+            style: ElevatedButton.styleFrom(
+              primary: _color, // background
+            ),
+            onPressed: () {
+              if(test == "hello"){
+                setState(() {
+                  test = 'flutter';
+                  _color = Colors.amber;
+                });
+              }else{
+                setState(() {
+                  test = 'hello';
+                  _color = Colors.blue;
+                });
+              }
             },
           )
         )
