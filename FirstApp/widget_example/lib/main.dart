@@ -28,6 +28,9 @@ class _WidgetExapleState extends State<WidgetApp>{
   List<DropdownMenuItem<String>> _dropDownMenuItems = [];
   var _buttonText;
 
+  String sum = "";
+  TextEditingController value1 = TextEditingController();
+  TextEditingController value2 = TextEditingController();
 
   @override
   void initState() {
@@ -37,10 +40,6 @@ class _WidgetExapleState extends State<WidgetApp>{
     }
     _buttonText = _dropDownMenuItems[0].value;
   }
-
-  String sum = "";
-  TextEditingController value1 = TextEditingController();
-  TextEditingController value2 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -83,13 +82,13 @@ class _WidgetExapleState extends State<WidgetApp>{
                       }else if(_buttonText == "곱하기"){
                         result = value1Int * value2Int;
                       }
-
                       sum = '$result';
                     });
                   },
                   child: Row(
                     children: [
                       Icon(Icons.add),
+
                       Text(_buttonText),
                     ],
                   ),
