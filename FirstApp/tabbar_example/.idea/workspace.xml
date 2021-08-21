@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="25df9527-37a7-496f-ae1d-47ff55644357" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/sub/secondPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_30" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -24,11 +45,11 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -50,30 +71,47 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="-1155" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1629450208404">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state x="680" y="233" key="#com.intellij.ide.util.MemberChooser" timestamp="1629520913039">
+      <screen x="0" y="0" width="1707" height="1027" />
     </state>
+    <state x="680" y="233" key="#com.intellij.ide.util.MemberChooser/0.0.1707.1027@0.0.1707.1027" timestamp="1629520913039" />
     <state x="-1155" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629450208404" />
     <state x="-1180" y="275" key="FileChooserDialogImpl" timestamp="1629479520962">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1180" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629479520962" />
-    <state width="1860" height="279" key="GridCell.Tab.0.bottom" timestamp="1629479526848">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state width="1647" height="447" key="GridCell.Tab.0.bottom" timestamp="1629549059728">
+      <screen x="0" y="0" width="1707" height="1027" />
     </state>
+    <state width="1647" height="447" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1629549059728" />
     <state width="1860" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629479526848" />
-    <state width="1860" height="279" key="GridCell.Tab.0.center" timestamp="1629479526847">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state width="1647" height="447" key="GridCell.Tab.0.center" timestamp="1629549059728">
+      <screen x="0" y="0" width="1707" height="1027" />
     </state>
+    <state width="1647" height="447" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1629549059728" />
     <state width="1860" height="279" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629479526847" />
-    <state width="1860" height="279" key="GridCell.Tab.0.left" timestamp="1629479526847">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state width="1647" height="447" key="GridCell.Tab.0.left" timestamp="1629549059728">
+      <screen x="0" y="0" width="1707" height="1027" />
     </state>
+    <state width="1647" height="447" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1629549059728" />
     <state width="1860" height="279" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629479526847" />
-    <state width="1860" height="279" key="GridCell.Tab.0.right" timestamp="1629479526848">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state width="1647" height="447" key="GridCell.Tab.0.right" timestamp="1629549059728">
+      <screen x="0" y="0" width="1707" height="1027" />
     </state>
+    <state width="1647" height="447" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1629549059728" />
     <state width="1860" height="279" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629479526848" />
     <state x="-1371" y="77" key="SettingsEditor" timestamp="1629485499002">
       <screen x="-1920" y="0" width="1920" height="1040" />
