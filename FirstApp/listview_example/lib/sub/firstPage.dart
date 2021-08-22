@@ -36,7 +36,6 @@ class FirstApp extends StatelessWidget{
                   showDialog(
                       context: context,
                       builder: (BuildContext context) => dialog);
-
                 },
               );
             },
