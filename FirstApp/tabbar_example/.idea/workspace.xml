@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="25df9527-37a7-496f-ae1d-47ff55644357" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,26 +57,26 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1155" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629450208404" />
-    <state x="-1180" y="275" key="FileChooserDialogImpl" timestamp="1629479520962">
+    <state x="-1180" y="275" key="FileChooserDialogImpl" timestamp="1629491890461">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1180" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629479520962" />
-    <state width="1860" height="279" key="GridCell.Tab.0.bottom" timestamp="1629479526848">
+    <state x="-1180" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629491890461" />
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1629491896273">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629479526848" />
-    <state width="1860" height="279" key="GridCell.Tab.0.center" timestamp="1629479526847">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629491896273" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1629491896272">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="279" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629479526847" />
-    <state width="1860" height="279" key="GridCell.Tab.0.left" timestamp="1629479526847">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629491896272" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1629491896272">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="279" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629479526847" />
-    <state width="1860" height="279" key="GridCell.Tab.0.right" timestamp="1629479526848">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629491896272" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1629491896272">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1860" height="279" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629479526848" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629491896272" />
     <state x="-1371" y="77" key="SettingsEditor" timestamp="1629485499002">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
@@ -83,9 +85,9 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1820" y="100" width="1720" height="840" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629475719564" />
-    <state x="-1268" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1629474332262">
+    <state x="-1268" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1629489159180">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1268" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629474332262" />
+    <state x="-1268" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629489159180" />
   </component>
 </project>
