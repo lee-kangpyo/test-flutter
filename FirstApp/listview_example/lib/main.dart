@@ -3,8 +3,11 @@ import './animalItem.dart';
 import 'sub/firstPage.dart';
 import 'sub/secondPage.dart';
 
+import './cupertinoMain.dart';
+
 void main() {
-  runApp(MyApp());
+  //runApp(MyApp());
+  runApp(CupertinoMain());
 }
 
 class MyApp extends StatelessWidget {
