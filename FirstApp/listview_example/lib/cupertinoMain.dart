@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import './isoSub/cupertinoFirstPage.dart';
-import './animalItem.dart';
+import 'isoSub/cupertinoFirstPage.dart';
+import 'isoSub/cupertinoSecondPage.dart';
+import 'isoSub/myPrefilledText.dart';
+import 'animalItem.dart';
 
 
 class CupertinoMain extends StatefulWidget{
@@ -19,6 +21,7 @@ class _CupertinoMain extends State<CupertinoMain>{
     super.initState();
     tabBar = CupertinoTabBar(items: [
       BottomNavigationBarItem(icon: Icon(CupertinoIcons.home)),
+      BottomNavigationBarItem(icon: Icon(CupertinoIcons.add)),
       BottomNavigationBarItem(icon: Icon(CupertinoIcons.add)),
     ]);
 
@@ -40,15 +43,16 @@ class _CupertinoMain extends State<CupertinoMain>{
         tabBuilder:(context, value){
           if(value == 0){
             return CupertinoFirstPage(animalList: animalList, key: UniqueKey(),);
+          }else if(value == 1){
+            return CupertinoSecondPage(animalList: animalList, key: UniqueKey(),);
+            //return MyPrefilledText(animalList: animalList, key: UniqueKey(),);
           }else{
-            return Container(
-              child: Center(
-                child: Text("cupertino tab 2"),
-              ),
-            );
+            return MyPrefilledText(test: "test", key: UniqueKey(),);
           }
         },
       ),
     );
   }
+
+
 }
