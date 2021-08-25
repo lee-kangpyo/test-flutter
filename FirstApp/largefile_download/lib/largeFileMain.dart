@@ -9,15 +9,30 @@ class LargeFileMain extends StatefulWidget {
 }
 
 class _LargeFileMain extends State<LargeFileMain> {
-  final imgUrl = 'https://images.pexels.com/photos/240040/pexels-photo-240040.jpeg?auto=compress';
+  late TextEditingController _editingController;
   bool downloading = false;
   var progressString = "";
   String file="";
 
+
+  @override
+  void initState() {
+    super.initState();
+    _editingController = TextEditingController(text: 'https://images.pexels.com/photos/240040/pexels-photo-240040.jpeg?auto=compress');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Large File Example"),),
+      appBar: AppBar(
+        title: TextField(
+          controller: _editingController,
+          style: TextStyle(color: Colors.white),
+          keyboardType: TextInputType.text,
+          decoration: InputDecoration(hintText: 'url 입력하세요'),
+          cursorColor: Colors.amber,
+        ),
+      ),
       body: Center(
         child: downloading ? 
             Container (
@@ -76,7 +91,7 @@ class _LargeFileMain extends State<LargeFileMain> {
     Dio dio = Dio();
     try {
       var dir = await getApplicationDocumentsDirectory();
-      await dio.download(imgUrl, "${dir.path}/myimage.jpg",
+      await dio.download(_editingController.value.text, "${dir.path}/myimage.jpg",
         onReceiveProgress: (rec, total){
           print('Rec : $rec , Total: $total');
           file = "${dir.path}/myimage.jpg";
