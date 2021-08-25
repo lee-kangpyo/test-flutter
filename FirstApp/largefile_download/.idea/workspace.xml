@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ee3d4747-7018-4a6c-830f-7186cb9578e2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/largeFileMain.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1xCfmJvFjmT9ftQTd92yD0g1yC1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee3d4747-7018-4a6c-830f-7186cb9578e2" name="Default Changelist" comment="" />
+      <created>1629864148349</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1629864148349</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1155" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1629864571432">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1155" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629864571432" />
+    <state width="1860" height="278" key="GridCell.Tab.0.bottom" timestamp="1629876762245">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="278" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629876762245" />
+    <state width="1860" height="278" key="GridCell.Tab.0.center" timestamp="1629876762245">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="278" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629876762245" />
+    <state width="1860" height="278" key="GridCell.Tab.0.left" timestamp="1629876762245">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="278" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629876762245" />
+    <state width="1860" height="278" key="GridCell.Tab.0.right" timestamp="1629876762245">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1860" height="278" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629876762245" />
+    <state x="-1268" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1629874219387">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1268" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1629874219387" />
+  </component>
+</project>
