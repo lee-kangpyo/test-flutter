@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="02f83a1d-654b-4d0c-82ff-6a1e7f5b7fe0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/fileApp.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo/fruit.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../todo_list/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../todo_list/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[R3CM40PYMXX]" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1xGNbNVnpYZTq0K1Qnfpfl1VOhe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="dart.analysis.tool.window.force.activate" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="02f83a1d-654b-4d0c-82ff-6a1e7f5b7fe0" name="Default Changelist" comment="" />
+      <created>1629977535720</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1629977535720</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="659" y="231" key="#com.intellij.ide.util.MemberChooser" timestamp="1629977948847">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state x="659" y="231" key="#com.intellij.ide.util.MemberChooser/0.0.1707.1027@0.0.1707.1027" timestamp="1629977948847" />
+    <state width="1662" height="232" key="GridCell.Tab.0.bottom" timestamp="1629996296426">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state width="1662" height="232" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1629996296426" />
+    <state width="1662" height="232" key="GridCell.Tab.0.center" timestamp="1629996296425">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state width="1662" height="232" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1629996296425" />
+    <state width="1662" height="232" key="GridCell.Tab.0.left" timestamp="1629996296425">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state width="1662" height="232" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1629996296425" />
+    <state width="1662" height="232" key="GridCell.Tab.0.right" timestamp="1629996296426">
+      <screen x="0" y="0" width="1707" height="1027" />
+    </state>
+    <state width="1662" height="232" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1629996296426" />
+  </component>
+</project>
