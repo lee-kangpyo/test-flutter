@@ -4,16 +4,26 @@ class SecondDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController controller = new TextEditingController();
+
     return Scaffold(
       appBar: AppBar(title: Text("second Page"),),
       body: Container(
         child: Center(
-          child: ElevatedButton(
-            child: Text("세 번째 페이지로 이동하기"),
-            onPressed: () {
-              Navigator.of(context).pushReplacementNamed("/third");
-            },
-          ),
+          child: Column(
+            children: [
+              TextField(
+                controller: controller,
+                keyboardType: TextInputType.text,
+              )
+              ,ElevatedButton(
+                  child: Text("저장하기"),
+                  onPressed: (){
+                    Navigator.of(context).pop(controller.value.text);
+                  },
+              ),
+            ],
+          )
         ),
       ),
     );
