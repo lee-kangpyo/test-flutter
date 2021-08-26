@@ -86,13 +86,22 @@ class _FileApp extends State<FileApp> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: (){
-
+          writeFruit(txtController.value.text);
+          setState(() {
+            itemList.add(txtController.value.text);
+          });
         },
       ),
 
     );
   }
 
+  void writeFruit(String fruit) async {
+    var dir = await getApplicationDocumentsDirectory();
+    var file = await File(dir.path + "/fruit.txt").readAsStringSync();
+    file = file + '\n' + fruit;
+    File(dir.path + '/fruit.txt').writeAsStringSync(file);
+  }
 
 
   Future<List<String>> readListFile() async {

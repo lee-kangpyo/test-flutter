@@ -1,0 +1,187 @@
+[33mcommit 03c27847b7ae899816fe8a9fbe9a0bebf56d6477[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: 그램 <darkzhon@hanmail.net>
+Date:   Fri Aug 27 01:48:08 2021 +0900
+
+    파일 읽어서 리스트뷰에 뿌려주기
+
+[33mcommit 036d67a69a121b66ca84a19df6fe8a64914febf7[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Thu Aug 26 17:24:46 2021 +0900
+
+    데모 앱의 카운트 값 공유 환경 설정에  저장하기
+
+[33mcommit b222fd94028ed9d89c6c4767c97eed5f37e3a526[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Thu Aug 26 12:42:57 2021 +0900
+
+    git ignore에서 iml, idea 폴더 해제
+
+[33mcommit cab0ff473b309c43d5c1d9531f40eb0ff267176d[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Thu Aug 26 12:39:08 2021 +0900
+
+    To Do 리스트 앱 할일 추가 기능 구현
+
+[33mcommit c171decb9b52989cf0fb185c891259c73e074c78[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Thu Aug 26 12:37:14 2021 +0900
+
+    누락된 부분 커밋
+
+[33mcommit 9c710c65940ad8bd955f63a6b2d5c6cd47ef6776[m
+Author: 그램 <darkzhon@hanmail.net>
+Date:   Thu Aug 26 01:14:16 2021 +0900
+
+    pushReplacementNamed, pushNamed, pop으로 페이지 이동 기능 만들기
+
+[33mcommit 82050863111d886dd489f1cdae8686b1e3ab739b[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Wed Aug 25 17:52:32 2021 +0900
+
+    라우트로 페이지 이동하기
+
+[33mcommit d6a4b0401da485e91f88569e4e8ca031c67ffff2[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Wed Aug 25 17:43:32 2021 +0900
+
+    페이지 이동하기 구현
+
+[33mcommit 574f544144b56cddfbbec0abbb4facf7be31302d[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Wed Aug 25 16:59:15 2021 +0900
+
+    url을 입력해서 내려받는 기능 추가
+
+[33mcommit f36486dabf31f0a6fdd00b6243635009808c57cb[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Wed Aug 25 16:36:08 2021 +0900
+
+    dio, path_provider를 이용한 이미지 파일 내려받기
+
+[33mcommit 94791cc3369abbe7d33084dd225fa2cb5376d61a[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Wed Aug 25 11:48:36 2021 +0900
+
+    카카오 api 책정보 ui 정리
+
+[33mcommit f0e7a78f105d1e8ba76d976641cac53e3a7df2dd[m
+Author: 그램 <darkzhon@hanmail.net>
+Date:   Wed Aug 25 00:38:16 2021 +0900
+
+    http통신을 이용한 카카오 서적 api통신을 통해 화면에 출력
+
+[33mcommit 9cdffec7295b8d5c2359a3146b1cd68a08a506fb[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Tue Aug 24 17:44:11 2021 +0900
+
+    쿠퍼티노 위젯으로 동물 추가화면 만들기
+
+[33mcommit 9a8031dd6c6beaf06eabbe02d40430d13cc7d0b7[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Tue Aug 24 10:25:52 2021 +0900
+
+    쿠퍼티노 위젯으로 첫번째 페이지 생성
+
+[33mcommit 394265a053fb7455e51173a39b4dc881f78f042d[m
+Merge: 6fede83 2fa76d0
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Mon Aug 23 09:06:37 2021 +0900
+
+    Merge branch 'master' of https://github.com/lee-kangpyo/test-flutter
+
+[33mcommit 6fede8349f092737374b7c06a796a4b1bd2f0ad5[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Mon Aug 23 09:05:15 2021 +0900
+
+    변경사항 커밋
+
+[33mcommit 2fa76d0d5bd0e795dbfcd2bbb1d19d55e5c5ca09[m
+Author: 그램 <darkzhon@hanmail.net>
+Date:   Mon Aug 23 00:39:40 2021 +0900
+
+    쿠퍼티노 스타일 시작
+
+[33mcommit 01b684eff9bade49e8f463d95d5a7a7e7d3c9183[m
+Author: 그램 <darkzhon@hanmail.net>
+Date:   Mon Aug 23 00:31:32 2021 +0900
+
+    동물을 목록에 추가하기
+
+[33mcommit 3dd7a36bf2940158f9c7aca6f2e5dba9aee2afb2[m
+Author: 그램 <darkzhon@hanmail.net>
+Date:   Sun Aug 22 22:22:35 2021 +0900
+
+    동물을 추가하는 페이지 만들기
+
+[33mcommit d530e8d6b904d9dfb9aee38a5d0bb39f6f4a1a07[m
+Author: 그램 <darkzhon@hanmail.net>
+Date:   Sun Aug 22 01:08:20 2021 +0900
+
+    목록을 보여주는 리스트뷰 만들기
+
+[33mcommit 94f6d43679a675e258cc0d23626b77c4a2684665[m
+Author: 그램 <darkzhon@hanmail.net>
+Date:   Sat Aug 21 21:33:59 2021 +0900
+
+    탭바 만들기 완료
+
+[33mcommit 51d20f985cba8b754c976c9628c5e4c3776a43ce[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Sat Aug 21 04:22:06 2021 +0900
+
+    idea 파일도 공유하기
+
+[33mcommit 77b39714cae99f3def6c1d173c9814f8e0bd886a[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Sat Aug 21 03:58:31 2021 +0900
+
+    다른 컴퓨터에서 클론할때 오류 생기는 이슈 테스트중
+
+[33mcommit 6ce36df89733a81d15ee52ed2857d1117721d1a0[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Fri Aug 20 18:05:30 2021 +0900
+
+    탭바
+
+[33mcommit 3392440d8476bc265d1739d78583dd80ddacac45[m
+Merge: 60218eb 9688ab6
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Fri Aug 20 17:58:14 2021 +0900
+
+    머지
+
+[33mcommit 60218ebd6f4a9ecd9a70f6d24e414d3965910d3f[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Fri Aug 20 17:56:06 2021 +0900
+
+    사용자와 상호작용 (계산기)
+
+[33mcommit 9688ab6ad94ad72aeaa5eac113f4aa6f43f5e477[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Fri Aug 20 09:55:00 2021 +0900
+
+    사용자와 상호작 (계산기)
+
+[33mcommit 9928db23d8f44ef43166de824e3f0e06e82747aa[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Fri Aug 20 09:54:29 2021 +0900
+
+    이미지와 폰트 다루기
+
+[33mcommit ba53872739e29695efc2f409b8cde63ff2341736[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Fri Aug 20 09:53:42 2021 +0900
+
+    스캐폴드를 이용한 머티리얼 디자인 예제
+
+[33mcommit 9f8a0db59bb340ae0034bec8b81831fd25ba4743[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Thu Aug 19 16:41:55 2021 +0900
+
+    플러터 앱의 구조와 생명 주기
+
+[33mcommit 5be659fc4dfc02f6a5623218a1b45898ddef1b2d[m
+Author: MSI02 <darkzhon@hanmail.net>
+Date:   Thu Aug 19 10:23:42 2021 +0900
+
+    Flutter 시작하기
