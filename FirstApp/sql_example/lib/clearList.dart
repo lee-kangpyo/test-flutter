@@ -27,12 +27,57 @@ class _ClearListApp extends State<ClearListApp> {
       body: Container(
         child: Center(
           child: FutureBuilder(
-            builder: (context, snapshot){
-              
+            builder: (context, snapshot) {
+              switch(snapshot.connectionState){
+                case ConnectionState.none:
+                case ConnectionState.waiting:
+                case ConnectionState.active:
+                  return CircularProgressIndicator();
+                case ConnectionState.done:
+                  if (snapshot.hasData){
+                    var data = snapshot.data as List<Todo>;
+                    return ListView.builder(
+                      itemBuilder: (context, index) {
+                        Todo todo = data[index];
+                        return ListTile(
+                          title: Text(todo.title!, style: TextStyle(fontSize: 20),),
+                          subtitle: Container(
+                            child: Column(
+                              children: [
+                                Text(todo.content!),
+                                Container(
+                                  height: 1,
+                                  color: Colors.blue,
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                      itemCount: data.length,
+                    );
+                  }
+                  return Text("no Data");
+              }
             },
+            future: clearList,
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          final result = await showDialog(
+            context: context,
+            builder: (BuildContext context){
+              return AlertDialog(
+                title: Text("완료한 일 삭제"),
+                content: Text("완료한 일을 모두 삭제할까요?"),
+                actions: [],
+              )
+            }
+          )
+        },
+        child: Icon(Icons.remove),),
     );
   }
 
