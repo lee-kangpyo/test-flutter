@@ -165,15 +165,44 @@ class _DatabaseApp extends State<DatabaseApp>{
 
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          final  todo = await Navigator.of(context).pushNamed("/add");
-          _insertTodo(todo as Todo);
-                  },
-        child: Icon(Icons.add),
+      floatingActionButton: Column(
+        children: [
+          Padding(
+            child: FloatingActionButton(
+              onPressed: () async {
+                final  todo = await Navigator.of(context).pushNamed("/add");
+                if(todo != null) {
+                  _insertTodo(todo as Todo);
+                }
+              },
+              heroTag: null,
+              child: Icon(Icons.add),
+            ),
+            padding: EdgeInsets.only(bottom: 10),
+          ),
+
+
+          FloatingActionButton(
+            onPressed: (){
+              _allUpdate();
+            },
+            heroTag: null,
+            child: Icon(Icons.update),
+          ),
+        ],
+        mainAxisAlignment: MainAxisAlignment.end,
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
+  }
+
+
+  void _allUpdate() async {
+    final Database db = await widget.db;
+    db.rawUpdate('update todos set active = 1 where active = 0');
+    setState(() {
+      todoList = getTodos();
+    });
   }
 
 

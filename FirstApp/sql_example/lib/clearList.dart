@@ -72,15 +72,28 @@ class _ClearListApp extends State<ClearListApp> {
               return AlertDialog(
                 title: Text("완료한 일 삭제"),
                 content: Text("완료한 일을 모두 삭제할까요?"),
-                actions: [],
-              )
+                actions: [
+                  TextButton(onPressed: () {Navigator.of(context).pop(true);}, child: Text("예")),
+                  TextButton(onPressed: () {Navigator.of(context).pop(false);}, child: Text("아니오")),
+                ],
+              );
             }
-          )
+          );
+          if (result == true){
+            _removeAllTodos();
+          }
         },
         child: Icon(Icons.remove),),
     );
   }
 
+  Future<void> _removeAllTodos() async {
+    final Database db = await widget.db;
+    db.rawDelete('delete from todos where active = 1');
+    setState(() {
+      clearList = getClearList();
+    });
+  }
 
   Future<List<Todo>> getClearList() async {
     final Database db = await widget.db;
