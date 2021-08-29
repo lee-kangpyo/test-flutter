@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'people.dart';
+import 'secondPage.dart';
+import 'intro.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: AnimationApp(),
+      home: IntroPage(),
     );
   }
 }
@@ -124,6 +126,20 @@ class _AnimationApp extends State<AnimationApp> {
                     });
                   },
                   child: Text("사라지기/나타나기")
+              ),
+              ElevatedButton(
+                onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => secondPage()));
+                },
+                child: SizedBox(
+                  width: 200,
+                  child: Row(
+                    children: [
+                      Hero(tag:"detail", child: Icon(Icons.cake),),
+                      Text("이동하기"),
+                    ],
+                  ),
+                )
               ),
             ],
             mainAxisAlignment: MainAxisAlignment.center,

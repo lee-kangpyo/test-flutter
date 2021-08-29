@@ -20,8 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c65cc8d4-b07f-411a-b526-b01e7394c441" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/intro.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/saturenLoading.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/secondPage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo/images/circle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo/images/saturn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo/images/sunny.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +56,13 @@
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/repo/images" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\test-flutter\FirstApp\animation_example\repo\images" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -75,27 +87,28 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="659" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1630168331360">
+    <state x="659" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1630251707468">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state x="659" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1707.1027@0.0.1707.1027" timestamp="1630168331360" />
-    <state width="1662" height="277" key="GridCell.Tab.0.bottom" timestamp="1630171927233">
+    <state x="659" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1707.1027@0.0.1707.1027" timestamp="1630251707468" />
+    <state width="1662" height="276" key="GridCell.Tab.0.bottom" timestamp="1630252799660">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="1662" height="277" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1630171927233" />
-    <state width="1662" height="277" key="GridCell.Tab.0.center" timestamp="1630171927233">
+    <state width="1662" height="276" key="GridCell.Tab.0.bottom/0.0.1707.1027@0.0.1707.1027" timestamp="1630252799660" />
+    <state width="1662" height="276" key="GridCell.Tab.0.center" timestamp="1630252799660">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="1662" height="277" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1630171927233" />
-    <state width="1662" height="277" key="GridCell.Tab.0.left" timestamp="1630171927233">
+    <state width="1662" height="276" key="GridCell.Tab.0.center/0.0.1707.1027@0.0.1707.1027" timestamp="1630252799660" />
+    <state width="1662" height="276" key="GridCell.Tab.0.left" timestamp="1630252799660">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="1662" height="277" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1630171927233" />
-    <state width="1662" height="277" key="GridCell.Tab.0.right" timestamp="1630171927233">
+    <state width="1662" height="276" key="GridCell.Tab.0.left/0.0.1707.1027@0.0.1707.1027" timestamp="1630252799660" />
+    <state width="1662" height="276" key="GridCell.Tab.0.right" timestamp="1630252799660">
       <screen x="0" y="0" width="1707" height="1027" />
     </state>
-    <state width="1662" height="277" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1630171927233" />
+    <state width="1662" height="276" key="GridCell.Tab.0.right/0.0.1707.1027@0.0.1707.1027" timestamp="1630252799660" />
   </component>
 </project>
