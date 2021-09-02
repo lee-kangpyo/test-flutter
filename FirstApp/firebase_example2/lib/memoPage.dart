@@ -1,14 +1,17 @@
+import 'package:firebase_example2/main.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'memo.dart';
 import 'memoAdd.dart';
 import 'memoDetail.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 
 class MemoPage extends StatefulWidget {
   @override
   State<MemoPage> createState() => _MemoPage();
+
 }
 
 class _MemoPage extends State<MemoPage> {
@@ -16,49 +19,80 @@ class _MemoPage extends State<MemoPage> {
   late DatabaseReference reference;
   String _databaseUrl = "https://yakollyeo-default-rtdb.firebaseio.com/";
   List<Memo> memos= [];
-  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
+
+
+  late FirebaseMessaging _firebaseMessaging;
+
+  bool _initialized = false;
+  bool _error = false;
+
+  void initializeFlutterFire() async {
+    try {
+      // Wait for Firebase to initialize and set `_initialized` state to true
+      await Firebase.initializeApp();
+      _firebaseMessaging = FirebaseMessaging.instance;
+      _database = FirebaseDatabase(databaseURL: _databaseUrl);
+      reference = _database.reference().child('memo');
+
+      reference.onChildAdded.listen((event) {
+        print(event.snapshot.value.toString());
+        setState(() {
+          memos.add(Memo.fromSnapshot(event.snapshot));
+        });
+      });
+      print("##################################################");
+      String? token = await _firebaseMessaging.getToken();
+      print(token);
+
+      FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+        RemoteNotification notification = message.notification!;
+        print("onMessage: $message");
+        showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              content: ListTile(
+                title: Text(notification.title!),
+                subtitle: Text(notification.body!),
+              ),
+              actions: [
+                TextButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: Text('ok')
+                ),
+              ],
+            )
+        );
+
+      });
+
+      FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
+        print("onMessageOpenedApp: $message");
+      });
+
+
+      setState(() {
+        _initialized = true;
+      });
+    } catch(e) {
+      // Set `_error` state to true if Firebase initialization fails
+      setState(() {
+        _error = true;
+      });
+    }
+  }
+
 
   @override
   void initState() {
+    initializeFlutterFire();
     super.initState();
-    _database = FirebaseDatabase(databaseURL: _databaseUrl);
-    reference = _database.reference().child('memo');
-    reference.onChildAdded.listen((event) {
-      print(event.snapshot.value.toString());
-      setState(() {
-        memos.add(Memo.fromSnapshot(event.snapshot));
-      });
-    });
 
-    _firebaseMessaging.getToken().then((value){print(value);});
-    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      RemoteNotification? notification = message.notification;
-      print("onMessage: $message");
-      showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            content: ListTile(
-              title: Text(notification!.title),
-              subtitle: Text(notification.body),
-            ),
-            actions: [
-              TextButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  child: Text('ok')
-              ),
-            ],
-          )
-      );
-
-    });
-
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      print("onMessageOpenedApp: $message");
-    });
-
+/*
     FirebaseMessaging.onBackgroundMessage((RemoteMessage message) {
-      print("onBackgroundMessage: $message");
+      print("onBackgroundMessage: $message!");
     });
+
+ */
     /*
     _firebaseMessaging.configure(
       onMessage:(Map<String, dynamic> message) async {
