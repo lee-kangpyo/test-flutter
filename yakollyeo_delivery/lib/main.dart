@@ -1,12 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'module/loginPage.dart';
 
-import 'module/secondPage.dart';
+import 'module/loginPage.dart';
+import 'module/splash.dart';
+
+
 
 final routes = {
   "/":(context) => MyHomePage(title: "로그인 테스트"),// LoginApp(),
+  "/splash":(context) => SplashApp(),
   "/login":(context) => LoginApp(),
 };
 
@@ -14,6 +16,7 @@ final routes = {
 void main() {
   runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   @override
@@ -23,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/',
+      initialRoute: '/splash',
       routes: routes,
     );
   }
@@ -53,14 +56,14 @@ class _MyHomePageState extends State<MyHomePage> {
       future: Firebase.initializeApp(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return Center(
-            child: Text("firebase load fail"),
+          return Scaffold(
+            body: Text("firebase load fail"),
           );
         }
         if (snapshot.connectionState == ConnectionState.done) {
-          return Center(
-            child: Text("firebase load complete"),
-          );//Navigator.of(context).pushNamed("/login");
+          return Scaffold(
+            body: Text("firebase load complete"),
+          );//Navigator.of(context).pushNamed("/login");*/
         }
         return CircularProgressIndicator();
       },

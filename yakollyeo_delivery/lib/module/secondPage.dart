@@ -6,7 +6,6 @@ class secondPage extends StatefulWidget {
 }
 
 class _secondPage extends State<secondPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Text("로그인 완료 페이지"),);

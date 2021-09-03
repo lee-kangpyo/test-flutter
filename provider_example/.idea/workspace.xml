@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,14 +23,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36f346a0-091d-41e8-b59d-a8012d3e88c6" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/../yakollyeo_delivery/lib/module/splash.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FirstApp/firebase_example2/lib/memoPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../FirstApp/firebase_example2/lib/memoPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yakollyeo_delivery/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../yakollyeo_delivery/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yakollyeo_delivery/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../yakollyeo_delivery/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yakollyeo_delivery/lib/module/secondPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../yakollyeo_delivery/lib/module/secondPage.dart" afterDir="false" />
+>>>>>>> 96cb2e9eb35ce3b9aee1d9e933d65926f0f30c78
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[R3CM40PYMXX]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -45,12 +56,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
