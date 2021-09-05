@@ -2,36 +2,57 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import '../vo/userVo.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert' as convert;
 
 
 class LoginApp extends StatefulWidget {
+
   @override
   State createState() => _LoginApp();
 }
 
 class _LoginApp extends State<LoginApp> {
-  final GoogleSignIn googleSignIn = GoogleSignIn();
-
+  late var token;
   final _formKey = new GlobalKey<FormState>();
 
   User user = User();
 
   void validateAndSave() {
+    print("토큰값 : "+token);
     final form = _formKey.currentState;
     if (form!.validate()) {
       form.save();
+      test();
       print('Form is valid id: ${user.id}, password: ${user.passWord}');
     } else {
       print('Form is invalid id: ${user.id}, password: ${user.passWord}');
     }
   }
 
+  void test() async {
+
+    var url = Uri.https('www.googleapis.com', '/books/v1/volumes', {'q': '{http}'});
+
+    // Await the http get response, then decode the json-formatted response.
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      var jsonResponse =
+      convert.jsonDecode(response.body) as Map<String, dynamic>;
+      var itemCount = jsonResponse['totalItems'];
+      print('Number of books about http: $itemCount.');
+    } else {
+      print('Request failed with status: ${response.statusCode}.');
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
+    final Map<String, String?> modalRoute = ModalRoute.of(context)!.settings.arguments as Map<String, String?>;
+    token = modalRoute['token'];
+
     return Scaffold(
-      appBar: AppBar(title: Text("약올려 로그인 페이지"),),
       body: Container(
         padding: EdgeInsets.all(20),
         child: Center(
@@ -42,8 +63,8 @@ class _LoginApp extends State<LoginApp> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
-                  onTap: (){Navigator.of(context).pushReplacementNamed("/login")},
-                  child: Padding(padding: EdgeInsets.all(20), child: Hero(tag: "logo", child: Image.asset("repo/images/logo.png"),),),
+                  onTap: (){Navigator.of(context).pushReplacementNamed("/login");},
+                  child: Padding(padding: EdgeInsets.all(20), child: Image.asset("repo/images/logo.png"),),
                 ),
                 formIdField(),
                 formPasswordField(),

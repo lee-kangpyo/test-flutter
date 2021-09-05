@@ -1,6 +1,6 @@
 # yakollyeo_delivery
 
-약올려 배송앱
+약올려앱
 
 ## Getting Started
 

@@ -6,6 +6,8 @@ import 'module/splash.dart';
 
 
 
+
+
 final routes = {
   "/":(context) => MyHomePage(title: "로그인 테스트"),// LoginApp(),
   "/splash":(context) => SplashApp(),
@@ -19,6 +21,8 @@ void main() {
 
 
 class MyApp extends StatelessWidget {
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
