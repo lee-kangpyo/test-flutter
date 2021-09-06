@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import '../vo/userVo.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
+import 'package:crypto/crypto.dart';
+
 
 
 class LoginApp extends StatefulWidget {
@@ -13,45 +15,45 @@ class LoginApp extends StatefulWidget {
 }
 
 class _LoginApp extends State<LoginApp> {
-  late var token;
   final _formKey = new GlobalKey<FormState>();
 
   User user = User();
 
   void validateAndSave() {
-    print("토큰값 : "+token);
+    //print("토큰값 : "+user.token!);
     final form = _formKey.currentState;
     if (form!.validate()) {
       form.save();
-      test();
-      print('Form is valid id: ${user.id}, password: ${user.passWord}');
+      reqLogin();
     } else {
-      print('Form is invalid id: ${user.id}, password: ${user.passWord}');
+      print('Form is invalid id: ${user.id}, password: ${user.passWord}, token: ${user.token}');
     }
   }
 
-  void test() async {
+  void reqLogin() async {
 
-    var url = Uri.https('www.googleapis.com', '/books/v1/volumes', {'q': '{http}'});
+    //var url = Uri.http('www.yakollyeo.com', '/api/v1/login.do', user.toJson());
+    var url = Uri.http('192.168.0.100', '/api/v1/login.do', user.toJson());
+    //var url = Uri.https('www.googleapis.com', '/books/v1/volumes', {'q': '{http}'});
+    print(url);
 
     // Await the http get response, then decode the json-formatted response.
-    var response = await http.get(url);
+    var response = await http.post(url);
     if (response.statusCode == 200) {
-      var jsonResponse =
-      convert.jsonDecode(response.body) as Map<String, dynamic>;
+      var jsonResponse = convert.jsonDecode(response.body) as Map<String, dynamic>;
       var itemCount = jsonResponse['totalItems'];
       print('Number of books about http: $itemCount.');
     } else {
       print('Request failed with status: ${response.statusCode}.');
     }
+
   }
 
 
   @override
   Widget build(BuildContext context) {
     final Map<String, String?> modalRoute = ModalRoute.of(context)!.settings.arguments as Map<String, String?>;
-    token = modalRoute['token'];
-
+    user.token = modalRoute['token'];
     return Scaffold(
       body: Container(
         padding: EdgeInsets.all(20),
@@ -87,13 +89,15 @@ class _LoginApp extends State<LoginApp> {
   }
 
   Widget formPasswordField(){
+
     return Padding(padding: EdgeInsets.all(10), child:TextFormField(
       obscureText: true,
       decoration: InputDecoration(labelText: '패스워드', border: OutlineInputBorder(),),
       validator: (value) => value!.isEmpty? '패스워드는 공백일수 없습니다.':null,
       onSaved: (value) {
-        var bite = utf8.encode(value!);
-        print(bite);
+        var bytes = utf8.encode("foobar"); // data being hashed
+        var digest = sha256.convert(bytes);
+        print(digest);
 
         user.passWord = value;
       },
