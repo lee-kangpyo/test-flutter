@@ -1,17 +1,19 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'module/loginPage.dart';
-import 'module/splash.dart';
-
-
-
+import 'views/loginPage.dart';
+import 'views/splash.dart';
+import 'views/MainPage.dart';
+import 'views/orderPage.dart';
 
 
 final routes = {
   "/":(context) => MyHomePage(title: "로그인 테스트"),// LoginApp(),
   "/splash":(context) => SplashApp(),
   "/login":(context) => LoginApp(),
+  "/main":(context) => MainApp(),
+  "/preOrder":(context) => OrderApp("preOrder"),
+  "/newOrder":(context) => OrderApp("newOrder"),
 };
 
 
