@@ -1,5 +1,5 @@
 name: yakollyeo_delivery
-description: 약올려 배송앱
+description: 약올려앱
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -38,6 +38,12 @@ dependencies:
   crypto: ^3.0.1
   rsa_encrypt: ^2.0.0
   encrypt: ^5.0.1
+  #토스트 메시지
+  fluttertoast: ^8.0.8
+  # 다음 우편번호
+  kpostal: ^0.3.2
+  # 알림 설정용
+  flutter_local_notifications: ^8.2.0
 
 
   path_provider: ^2.0.3
@@ -58,7 +64,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - repo/images/logo.png
+    - repo/images/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

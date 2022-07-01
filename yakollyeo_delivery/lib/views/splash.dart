@@ -2,20 +2,18 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_analytics/observer.dart';
-
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:yakollyeo_delivery/module/fireBaseAnalytics.dart';
+import 'package:yakollyeo_delivery/module/fileIo.dart';
 
 class SplashApp extends StatefulWidget{
+
   @override
   State createState() => _SplashApp();
 }
 
 class _SplashApp extends State<SplashApp> {
-
-  late FirebaseMessaging _firebaseMessaging;
+  late Future<String?> cstCo;                 // 로그인할때 저장한 cstCo
+  late Future<String?> userId;                // 로그인할때 저장한 userId
   late String _message;
   bool _initialized = false;
   bool _error = false;
@@ -30,6 +28,7 @@ class _SplashApp extends State<SplashApp> {
   @override
   void initState() {
     super.initState();
+
     loadData();
   }
 
@@ -38,8 +37,16 @@ class _SplashApp extends State<SplashApp> {
   }
 
   void _init() async {
+    print("##########");
+    print("##########");
+    print("##########");
+    print("##########");
+    print("##########");
+
+
     //오래걸리는 작업 수행
-    String? token = await initializeFlutterFMC();
+    String? token = await getToken();
+    print(token);
     Navigator.of(context).pushNamedAndRemoveUntil("/login", (Route<dynamic> route) => false, arguments: {"token":token});
     //Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginApp()));
   }
@@ -60,14 +67,14 @@ class _SplashApp extends State<SplashApp> {
     );
   }
 
-
-  Future<String?> initializeFlutterFMC() async {
+/*
+  Future<String?> initializeFlutterFMC(context) async {
     try {
       // Wait for Firebase to initialize and set `_initialized` state to true
-      await Firebase.initializeApp();
-      _firebaseMessaging = FirebaseMessaging.instance;
+      //await Firebase.initializeApp();
+      //firebaseMessaging = FirebaseMessaging.instance;
 
-      String token = (await _firebaseMessaging.getToken())!;
+      String token = (await firebaseMessaging.getToken())!;
 
       FirebaseMessaging.onMessage.listen((RemoteMessage message) {
         RemoteNotification notification = message.notification!;
@@ -93,17 +100,11 @@ class _SplashApp extends State<SplashApp> {
       FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
         print("onMessageOpenedApp: $message");
       });
-
-
-      setState(() {
-        _initialized = true;
-      });
       return token;
     } catch(e) {
-      // Set `_error` state to true if Firebase initialization fails
-      setState(() {
-        _error = true;
-      });
+
     }
-  }
+  }*/
+
+
 }

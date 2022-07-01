@@ -1,13 +1,11 @@
-import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../vo/userVo.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
-import 'package:crypto/crypto.dart';
 
+import 'package:yakollyeo_delivery/module/fireBaseAnalytics.dart';
 import 'package:yakollyeo_delivery/module/alert.dart';
 import 'package:yakollyeo_delivery/module/fileIo.dart';
 import 'package:yakollyeo_delivery/module/urlIfo.dart';
@@ -16,23 +14,23 @@ import 'package:rsa_encrypt/rsa_encrypt.dart';
 import 'package:encrypt/encrypt.dart';
 
 
+final publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkapd53FWX2vpTDeUbo1wZcOMxLMdSXG5Lz1C7MOUyxu34LpSkZxcAkU5Yl73Pm5lB9+rsL+L0mHv0hK5vg6hWsy9bSHBk0FbW15BYtud1mULNzkjF9yYd5NDN6kT+OIybQXvTm/l+mNz/pfwm6QhzujRsTnAE3bBcr87oikdchNQ9ZDCmhwR9sIULEiRMMvU6XsVYg49NuPGQRJuxTIh0QsGyN1NbbNhdwtYvITTzmEcpT/jtpqOC2tock/EoncvUjrMjQ5R+ttjtW4WbFAzQuNgtjrKuzCrVMjVR3hYowrH0O5FwB6DhcDGAlEaZakn4b7vh1mBh3Jungg0hlPqjQIDAQAB";
+final _formKey = new GlobalKey<FormState>();
+
 class LoginApp extends StatefulWidget {
   @override
   State createState() => _LoginApp();
 }
 
 class _LoginApp extends State<LoginApp> {
-  late String publicKey;
-  late String privateKey;
-  final _formKey = new GlobalKey<FormState>();
+  bool isAutoLogin = false;
   var _firstTab = true;
   User user = User();
-
 
   @override
   void initState() {
     super.initState();
-    publicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkapd53FWX2vpTDeUbo1wZcOMxLMdSXG5Lz1C7MOUyxu34LpSkZxcAkU5Yl73Pm5lB9+rsL+L0mHv0hK5vg6hWsy9bSHBk0FbW15BYtud1mULNzkjF9yYd5NDN6kT+OIybQXvTm/l+mNz/pfwm6QhzujRsTnAE3bBcr87oikdchNQ9ZDCmhwR9sIULEiRMMvU6XsVYg49NuPGQRJuxTIh0QsGyN1NbbNhdwtYvITTzmEcpT/jtpqOC2tock/EoncvUjrMjQ5R+ttjtW4WbFAzQuNgtjrKuzCrVMjVR3hYowrH0O5FwB6DhcDGAlEaZakn4b7vh1mBh3Jungg0hlPqjQIDAQAB";
+    sendAnalyticsScreen("loginPage");
   }
 
   void validateAndSave() {
@@ -41,8 +39,10 @@ class _LoginApp extends State<LoginApp> {
 
       final form = _formKey.currentState;
       if (form!.validate()) {
+        print(user.token);
         form.save();
         reqLogin();
+
       } else {
         print('Form is invalid id: ${user.id}, password: ${user.passWord}, token: ${user.token}');
       }
@@ -51,25 +51,14 @@ class _LoginApp extends State<LoginApp> {
 
   void reqLogin() async {
     var url = Uri.http(getHost (), getUrlPath("login"));
-    //var url = Uri.http('admin.yakollyeo.com', '/api/v1/login.do');
-    print("##############################");
     var helper = RsaKeyHelper();
     var pubk = helper.parsePublicKeyFromPem(publicKey);
-    //var prik = helper.parsePrivateKeyFromPem(privateKey);
     final encrypter = Encrypter(RSA(publicKey: pubk));
-
     final encrypted =  encrypter.encrypt(user.passWord!);
-    print(encrypted.base64);
-
-
     user.passWord = encrypted.base64;
-    print("##############################");
-
-    //user.passWord = result;
-
     var response;
     try{
-      print(user.toJson());
+      analytics.logLogin();
       response = await http.post(url, headers: {"contentType" : "application/json;charset=UTF-8",}, body: user.toJson()).timeout(
         Duration(seconds: 5),
         onTimeout: () {
@@ -89,6 +78,7 @@ class _LoginApp extends State<LoginApp> {
           writeCstco(result["cstCo"].toString());
           writeStr("cstNa", result["cstNA"].toString());
           writeStr("cstCl", result["cstCl"].toString());
+          writeStr("userId", result["userId"].toString());
           Navigator.of(context).pushReplacementNamed("/main");
         }else{
           _showCommonDialog(
@@ -97,6 +87,7 @@ class _LoginApp extends State<LoginApp> {
                 title:"로그인 에러",
                 content:"이 앱은 도매 회원전용입니다.",
                 callback:(){_firstTab = true;},
+                btnName: "닫기",
               )
           );
         }
@@ -126,6 +117,7 @@ class _LoginApp extends State<LoginApp> {
             title:"로그인 에러",
             content:"로그인중 오류가 발생했습니다.\n만약 계속해서 오류가 발생한다면 070-8158-1008에 문의해주세요.\n\n에러코드 : ${statusCode}",
             callback: (){_firstTab = true;},
+            btnName: "닫기",
         );
       },
     );
@@ -180,7 +172,6 @@ class _LoginApp extends State<LoginApp> {
   }
 
   Widget formPasswordField(){
-
     return Padding(padding: EdgeInsets.all(10), child:TextFormField(
       obscureText: true,
       decoration: InputDecoration(labelText: '패스워드', border: OutlineInputBorder(),),
@@ -198,18 +189,36 @@ class _LoginApp extends State<LoginApp> {
 
   Widget formButtonGroup(){
     return Padding(padding: EdgeInsets.all(10),
-        child:Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child:Column(
           children: [
-            Expanded(
-                child:ElevatedButton.icon(
-                  icon: Icon(Icons.login), 
-                  onPressed: validateAndSave, 
-                  label: Text("Login", style: TextStyle(fontSize: 20),),
-                  style: ElevatedButton.styleFrom(padding: EdgeInsets.all(15), primary: Color(0xff26c998)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Checkbox(
+                    value: isAutoLogin,
+                    onChanged: (check){
+                      setState(() {
+                        isAutoLogin = check!;
+                      });
+                    }
                 ),
+                Text("자동 로그인"),
+              ],
             ),
-            //ElevatedButton(onPressed: (){}, child: Text("regist", style: TextStyle(fontSize: 20),)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: ElevatedButton.icon(
+                    icon: Icon(Icons.login),
+                    onPressed: validateAndSave,
+                    label: Text("Login", style: TextStyle(fontSize: 20),),
+                    style: ElevatedButton.styleFrom(padding: EdgeInsets.all(15), primary: Color(0xff26c998)),
+                  ),
+                ),
+                //ElevatedButton(onPressed: (){}, child: Text("regist", style: TextStyle(fontSize: 20),)),
+              ],
+            ),
           ],
         )
     );

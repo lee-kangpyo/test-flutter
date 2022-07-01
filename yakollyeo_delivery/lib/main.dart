@@ -1,10 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
+import 'package:yakollyeo_delivery/module/fireBaseAnalytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'views/loginPage.dart';
 import 'views/splash.dart';
 import 'views/MainPage.dart';
-import 'views/orderPage.dart';
+import 'views/preOrderPage.dart';
+import 'views/newOrderPage.dart';
+import 'views/postSearchPage.dart';
+
 
 
 final routes = {
@@ -12,18 +16,16 @@ final routes = {
   "/splash":(context) => SplashApp(),
   "/login":(context) => LoginApp(),
   "/main":(context) => MainApp(),
-  "/preOrder":(context) => OrderApp("preOrder"),
-  "/newOrder":(context) => OrderApp("newOrder"),
+  "/preOrder":(context) => PreOrderApp(),
+  "/newOrder":(context) => NewOrderApp(),
+  "/searchPost":(context) => PostSearch(title: "우편번호 검색"),
 };
-
 
 void main() {
   runApp(MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
-
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +36,13 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/splash',
       routes: routes,
+      navigatorObservers: [
+        FirebaseAnalyticsObserver(analytics: analytics),
+      ],
     );
   }
+
+
 }
 
 class MyHomePage extends StatefulWidget {
