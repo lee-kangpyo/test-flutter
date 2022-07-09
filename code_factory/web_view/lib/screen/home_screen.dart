@@ -3,7 +3,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
   WebViewController? controller;
-  final homeUrl = "https:/www.naver.com";
+  final homeUrl = "http://www.yakollyeo.com/";
 
   HomeScreen({Key? key}) : super(key: key);
 

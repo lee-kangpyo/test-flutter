@@ -57,7 +57,34 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - asset/img/
+    - asset/img/    - android/app/src/    - android/app/src/main/    - android/app/src/debug/    - android/app/src/profile/    - android/app/src/main/res/    - android/app/src/main/kotlin/    - android/app/src/main/res/values-night/    - android/app/src/main/res/drawable/    - android/app/src/main/res/drawable-v21/    - android/app/src/main/res/mipmap-xxxhdpi/    - android/app/src/main/res/values/    - android/app/src/main/res/mipmap-xxhdpi/    - android/app/src/main/res/mipmap-hdpi/    - android/app/src/main/res/mipmap-mdpi/    - android/app/src/main/res/mipmap-xhdpi/    - android/app/src/main/kotlin/com/    - android/app/src/main/kotlin/com/example/    - android/app/src/main/kotlin/com/example/random_number_generator/    - android/app/src/main/kotlin/com/example/random_number_generator/random_number_generator/    - android/    - android/gradle/wrapper/    - android/app/src/main/java/    - android/app/src/main/java/io/    - android/app/src/main/java/io/flutter/    - android/app/src/main/java/io/flutter/plugins/    - android/gradle/    - android/app/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:
