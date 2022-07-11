@@ -22,46 +22,86 @@ class _SettingsScreenState extends State<SettingsScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Expanded(
-                  child: Row(
-                    children: maxNumber.toInt()
-                        .toString()
-                        .split("")
-                        .map(
-                          (e) => Image.asset(
-                            "asset/img/$e.png",
-                            width: 50.0,
-                            height: 70.0,
-                          ),
-                        )
-                        .toList(),
-                  ),
+                _top(
+                  maxNumber: maxNumber,
                 ),
-                Slider(
-                  value: maxNumber,
-                  min: 1000,
-                  max : 100000,
-                  onChanged: (double val) {
-                    setState((){
-                      maxNumber = val;
-                    });
-
-                  },
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // pop() - 액티비티를 터뜨리는것
-                    // 인자로 전달할 데이터를 넣어주면된다.
-                    Navigator.of(context).pop(maxNumber.toInt());
-                  },
-                  style: ElevatedButton.styleFrom(primary: RED_COLOR),
-                  child: Text("저장!"),
+                _bottom(
+                  maxNumber: maxNumber,
+                  onButtonPressed: onButtonPressed,
+                  onSliderChanged: onSliderChanged,
                 )
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  void onSliderChanged(double val) {
+    setState(() {
+      maxNumber = val;
+    });
+  }
+
+  void onButtonPressed() {
+    Navigator.of(context).pop(maxNumber.toInt());
+  }
+}
+
+class _top extends StatelessWidget {
+  final maxNumber;
+  const _top({required this.maxNumber, Key? key,}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Row(
+        children: maxNumber
+            .toInt()
+            .toString()
+            .split("")
+            .map(
+              (e) => Image.asset(
+                "asset/img/$e.png",
+                width: 50.0,
+                height: 70.0,
+              ),
+            )
+            .toList(),
+      ),
+    );
+  }
+}
+
+class _bottom extends StatelessWidget {
+  final ValueChanged<double>? onSliderChanged;
+  final VoidCallback onButtonPressed;
+  final maxNumber;
+  const _bottom(
+      {required this.onSliderChanged,
+      required this.onButtonPressed,
+      required this.maxNumber,
+      Key? key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Slider(
+          value: maxNumber,
+          min: 1000,
+          max: 100000,
+          onChanged: onSliderChanged,
+        ),
+        ElevatedButton(
+          onPressed: onButtonPressed,
+          style: ElevatedButton.styleFrom(primary: RED_COLOR),
+          child: Text("저장!"),
+        ),
+      ],
     );
   }
 }
