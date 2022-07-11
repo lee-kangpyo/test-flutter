@@ -31,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
               _Bottom(
                 onPressed: onRandomNumberGenerate,
               ),
+<<<<<<< HEAD
             ],
           ),
         ),
@@ -124,6 +125,29 @@ class _Body extends StatelessWidget {
                             'asset/img/$y.png',
                             height: 70.0,
                             width: 50.0,
+=======
+              Expanded(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [123, 456, 789]
+                        .asMap().entries
+                        .map(
+                          (x) => Padding(
+                            padding: EdgeInsets.only(bottom: x.key == 2 ? 0 : 16.0),
+                            child: Row(
+                              children: x.value
+                                  .toString()
+                                  .split("")
+                                  .map(
+                                    (y) => Image.asset(
+                                      'asset/img/$y.png',
+                                      height: 70.0,
+                                      width: 50.0,
+                                    ),
+                                  )
+                                  .toList(),
+                            ),
+>>>>>>> 40d4744e4551bb3f7f48b699d2902fc79f2575c3
                           ),
                         )
                         .toList(),
