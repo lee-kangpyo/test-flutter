@@ -71,18 +71,9 @@ class _Header extends StatelessWidget {
           ),
         ),
         IconButton(
-          onPressed: () {
-            /*
-            Theme.of(context)
-            MediaQuery.of(context)
-            Navigator.of(context)
-            */
-            
-            // list의 add와 같다.
-            // 새로운 스크린을 라우터 스택에 넣기 위해  push라는 키워드를 사용
-            //[HomeScreen(), SettingsScreen()]
-            // Route = screen
-            Navigator.of(context).push(
+          onPressed: () async {
+            // 제너릭
+            final result = await Navigator.of(context).push<int>(
               MaterialPageRoute(
                   builder: (BuildContext context){
                     return const SettingsScreen();

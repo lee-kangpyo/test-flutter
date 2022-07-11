@@ -49,7 +49,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   },
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // pop() - 액티비티를 터뜨리는것
+                    // 인자로 전달할 데이터를 넣어주면된다.
+                    Navigator.of(context).pop(maxNumber.toInt());
+                  },
                   style: ElevatedButton.styleFrom(primary: RED_COLOR),
                   child: Text("저장!"),
                 )
