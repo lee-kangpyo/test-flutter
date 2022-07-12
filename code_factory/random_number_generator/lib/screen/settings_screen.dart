@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:random_number_generator/component/number_row.dart';
 
 import '../constant/color.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  final int maxNumber;
+  const SettingsScreen({required this.maxNumber, Key? key}) : super(key: key);
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -11,6 +13,14 @@ class SettingsScreen extends StatefulWidget {
 
 class _SettingsScreenState extends State<SettingsScreen> {
   double maxNumber = 1000;
+
+  //액티비티가 새로 생성될때 호출되는 함수 빌드를 실행하기전에 실행이된다.
+  @override
+  void initState() {
+    super.initState();
+
+    maxNumber = widget.maxNumber.toDouble();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,25 +60,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
 }
 
 class _top extends StatelessWidget {
-  final maxNumber;
-  const _top({required this.maxNumber, Key? key,}) : super(key: key);
+  final double maxNumber;
+  const _top({
+    required this.maxNumber,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Row(
-        children: maxNumber
-            .toInt()
-            .toString()
-            .split("")
-            .map(
-              (e) => Image.asset(
-                "asset/img/$e.png",
-                width: 50.0,
-                height: 70.0,
-              ),
-            )
-            .toList(),
+      child: NumberRow(
+        number: maxNumber.toInt(),
       ),
     );
   }
