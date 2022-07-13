@@ -3,9 +3,9 @@ import 'package:navigation/layout/layout/main_layout.dart';
 import 'package:navigation/screen/route_two_screen.dart';
 
 class RouteOneScreen extends StatelessWidget {
-  final int number;
+  final int? number;
   const RouteOneScreen({
-    required this.number,
+    this.number,
     Key? key,
   }) : super(key: key);
 

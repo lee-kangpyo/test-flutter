@@ -10,12 +10,24 @@ class RouteTwoScreen extends StatelessWidget {
     return MainLayout(
       title: "라우트 2",
       children: [
-        Text("arguments:$arguments", textAlign: TextAlign.center,),
+        Text(
+          "arguments:$arguments",
+          textAlign: TextAlign.center,
+        ),
         ElevatedButton(
           onPressed: () {
             Navigator.of(context).pop(456);
           },
           child: const Text("Pop"),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).pushNamed(
+              "/three",
+              arguments: 999,
+            );
+          },
+          child: Text("Push named"),
         ),
       ],
     );
