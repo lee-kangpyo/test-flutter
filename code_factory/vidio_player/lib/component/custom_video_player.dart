@@ -18,6 +18,7 @@ class CustomVideoPlayer extends StatefulWidget {
 
 class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
   late VideoPlayerController controller;
+  Duration currentPosition = Duration();
 
   // initState는 initializeController를 호출만하고 끝난다
   // 비동기처리는 initializeController() 함수가 처리함.
@@ -35,7 +36,14 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
 
     await controller.initialize();
 
-    setState(() {});
+    controller.addListener(() async {
+      final currentPosition = controller.value.position;
+
+      setState(() {
+        this.currentPosition = currentPosition;
+      });
+    });
+
   }
 
   @override
@@ -62,18 +70,23 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
             isplaying: controller.value.isPlaying,
           ),
         ),
-        Positioned(
-          right: 0,
-          child: IconButton(
-            onPressed: () {},
-            color: Colors.white,
-            iconSize: 30.0,
-            icon: Icon(Icons.photo_camera_back),
-          ),
+        _NewVideo(
+          onPressed: onNewVideoPressed,
+        ),
+        _SliderBottom(
+          maxPosition: controller.value.duration,
+          currentPosition: currentPosition,
+          onChanged: onSliderChanged,
         ),
       ],
     );
   }
+
+  void onSliderChanged(double val) {
+    controller.seekTo(Duration(seconds: val.toInt()));
+  }
+
+  void onNewVideoPressed() {}
 
   void onReversePressed() {
     final currentPosition = controller.value.position;
@@ -161,6 +174,76 @@ class _Controls extends StatelessWidget {
       iconSize: 30.0,
       color: Colors.white,
       icon: Icon(iconData),
+    );
+  }
+}
+
+class _NewVideo extends StatelessWidget {
+  final VoidCallback onPressed;
+  const _NewVideo({
+    required this.onPressed,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      right: 0,
+      child: IconButton(
+        onPressed: onPressed,
+        color: Colors.white,
+        iconSize: 30.0,
+        icon: const Icon(Icons.photo_camera_back),
+      ),
+    );
+  }
+}
+
+class _SliderBottom extends StatelessWidget {
+  final Duration currentPosition;
+  final Duration maxPosition;
+  final ValueChanged<double> onChanged;
+
+  const _SliderBottom({
+    required this.currentPosition,
+    required this.maxPosition,
+    required this.onChanged,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      bottom: 0.0,
+      right: 0.0,
+      left: 0.0,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Row(
+          children: [
+            Text(
+              "${currentPosition.inMinutes}:${(currentPosition.inSeconds % 60).toString().padLeft(2, "0")}",
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            Expanded(
+              child: Slider(
+                max: maxPosition.inSeconds.toDouble(),
+                min: 0,
+                value: currentPosition.inSeconds.toDouble(),
+                onChanged: onChanged,
+              ),
+            ),
+            Text(
+              "${maxPosition.inMinutes}:${(maxPosition.inSeconds % 60).toString().padLeft(2, "0")}",
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
