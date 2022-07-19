@@ -6,9 +6,11 @@ import 'package:video_player/video_player.dart';
 
 class CustomVideoPlayer extends StatefulWidget {
   final XFile video;
+  final VoidCallback onNewVideoPressed;
 
   const CustomVideoPlayer({
     required this.video,
+    required this.onNewVideoPressed,
     Key? key,
   }) : super(key: key);
 
@@ -19,9 +21,8 @@ class CustomVideoPlayer extends StatefulWidget {
 class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
   late VideoPlayerController controller;
   Duration currentPosition = Duration();
+  bool showControls = false;
 
-  // initState는 initializeController를 호출만하고 끝난다
-  // 비동기처리는 initializeController() 함수가 처리함.
   @override
   void initState() {
     super.initState();
@@ -29,7 +30,19 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
     initializeController();
   }
 
+
+  @override
+  void didUpdateWidget(covariant CustomVideoPlayer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if(oldWidget.video.path != widget.video.path){
+      initializeController();
+    }
+  }
+
   initializeController() async {
+    currentPosition = Duration();
+
     controller = VideoPlayerController.file(
       File(widget.video.path),
     );
@@ -52,41 +65,48 @@ class _CustomVideoPlayerState extends State<CustomVideoPlayer> {
       return const CircularProgressIndicator();
     }
 
-    return Stack(
-      //alignment: Alignment.center,
-      children: [
-        AspectRatio(
-          aspectRatio: controller.value.aspectRatio,
-          child: VideoPlayer(
-            controller,
+    return GestureDetector(
+      onTap: (){
+        setState((){
+          showControls = !showControls;
+        });
+      },
+      child: Stack(
+        //alignment: Alignment.center,
+        children: [
+          AspectRatio(
+            aspectRatio: controller.value.aspectRatio,
+            child: VideoPlayer(
+              controller,
+            ),
           ),
-        ),
-        AspectRatio(
-          aspectRatio: controller.value.aspectRatio,
-          child: _Controls(
-            onReversePressed: onReversePressed,
-            onForwardPressed: onForwardPressed,
-            onPlayPressed: onPlayPressed,
-            isplaying: controller.value.isPlaying,
+          if(showControls)
+          AspectRatio(
+            aspectRatio: controller.value.aspectRatio,
+            child: _Controls(
+              onReversePressed: onReversePressed,
+              onForwardPressed: onForwardPressed,
+              onPlayPressed: onPlayPressed,
+              isplaying: controller.value.isPlaying,
+            ),
           ),
-        ),
-        _NewVideo(
-          onPressed: onNewVideoPressed,
-        ),
-        _SliderBottom(
-          maxPosition: controller.value.duration,
-          currentPosition: currentPosition,
-          onChanged: onSliderChanged,
-        ),
-      ],
+          if(showControls)
+          _NewVideo(
+            onPressed: widget.onNewVideoPressed,
+          ),
+          _SliderBottom(
+            maxPosition: controller.value.duration,
+            currentPosition: currentPosition,
+            onChanged: onSliderChanged,
+          ),
+        ],
+      ),
     );
   }
 
   void onSliderChanged(double val) {
     controller.seekTo(Duration(seconds: val.toInt()));
   }
-
-  void onNewVideoPressed() {}
 
   void onReversePressed() {
     final currentPosition = controller.value.position;

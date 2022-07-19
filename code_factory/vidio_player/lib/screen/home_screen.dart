@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Center(
       child: CustomVideoPlayer(
         video: video!,
+        onNewVideoPressed: onNewVideoPressed,
       ),
     );
   }
@@ -36,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _Logo(
-            onTap: onLogoTap,
+            onTap: onNewVideoPressed,
           ),
           const SizedBox(height: 30.0),
           const _AppName(),
@@ -45,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void onLogoTap() async {
+  void onNewVideoPressed() async {
     // ImageSource.camera  - 카메라 실행
     // ImageSource.gallery - 갤러리 실행
     final video = await ImagePicker().pickVideo(
@@ -55,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         this.video = video;
       });
-    } else {}
+    }
   }
 
   BoxDecoration getBoxDecoration() {
