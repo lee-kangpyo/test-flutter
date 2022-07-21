@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   // lattitude - 위도, longitude - 경도
-  static final LatLng companyLatLng = LatLng(
+  static final LatLng companyLatLng = const LatLng(
     37.544790,
     127.059366,
   );
@@ -19,6 +19,17 @@ class _HomeScreenState extends State<HomeScreen> {
   static final CameraPosition initialPosition = CameraPosition(
     target: companyLatLng,
     zoom: 15,
+  );
+
+  static final double distance = 100;
+  // 반경 표시
+  static final Circle circle = Circle(
+    circleId: const CircleId("circle"),
+    center: companyLatLng,
+    fillColor: Colors.blue.withOpacity(0.5),
+    radius: distance,
+    strokeColor: Colors.blue,
+    strokeWidth: 1,
   );
 
   @override
@@ -34,10 +45,13 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }
 
-          if(snapshot.data == "위치 권한이 허가 되었습니다."){
+          if (snapshot.data == "위치 권한이 허가 되었습니다.") {
             return Column(
               children: [
-                _CustomGoogleMap(initialPosition: initialPosition),
+                _CustomGoogleMap(
+                  initialPosition: initialPosition,
+                  circle: circle,
+                ),
                 const _choolCheckButton(),
               ],
             );
@@ -46,7 +60,6 @@ class _HomeScreenState extends State<HomeScreen> {
           return Center(
             child: Text(snapshot.data),
           );
-
         },
       ),
     );
@@ -91,8 +104,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
 class _CustomGoogleMap extends StatelessWidget {
   final CameraPosition initialPosition;
+  final Circle circle;
   const _CustomGoogleMap({
     required this.initialPosition,
+    required this.circle,
     Key? key,
   }) : super(key: key);
 
@@ -103,6 +118,9 @@ class _CustomGoogleMap extends StatelessWidget {
       child: GoogleMap(
         mapType: MapType.normal,
         initialCameraPosition: initialPosition,
+        myLocationEnabled: true,
+        myLocationButtonEnabled: false,
+        circles: Set.from([circle]),
       ),
     );
   }
