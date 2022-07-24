@@ -11,11 +11,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool choolCheckDone = false;
+  GoogleMapController? mapController;
 
   // lattitude - 위도, longitude - 경도
   static final LatLng companyLatLng = const LatLng(
-    37.541673,
-    127.092763,
+    37.544790,
+    127.059366,
   );
   // 37.544790, 127.059366,
   // 37.541673, 127.092763,
@@ -71,7 +72,6 @@ class _HomeScreenState extends State<HomeScreen> {
               child: CircularProgressIndicator(),
             );
           }
-
           if (snapshot.data == "위치 권한이 허가 되었습니다.") {
             return StreamBuilder<Position>(
                 stream: Geolocator.getPositionStream(),
@@ -100,6 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             : isWithinRange
                                 ? withinDistanceCircle
                                 : notwithinDistanceCircle,
+                        onMapCreated: onMapCreated,
                       ),
                       _choolCheckButton(
                         isWithinRange: isWithinRange,
@@ -119,6 +120,11 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
   // end
+
+  void onMapCreated(GoogleMapController controller) {
+    // 화면에 반영할 필요가 없으므로 setState는 안써도 된다.
+    mapController = controller;
+  }
 
   void onChoolCheckPressed() async {
     final result = await showDialog(
@@ -184,6 +190,30 @@ class _HomeScreenState extends State<HomeScreen> {
         style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w700),
       ),
       backgroundColor: Colors.white,
+      actions: [
+        IconButton(
+          onPressed: () async {
+            if (mapController == null) {
+              return;
+            }
+
+            final location = await Geolocator.getCurrentPosition();
+
+            mapController!.animateCamera(
+              CameraUpdate.newLatLng(
+                LatLng(
+                  location.latitude,
+                  location.longitude,
+                ),
+              ),
+            );
+          },
+          icon: Icon(
+            Icons.my_location,
+            color: Colors.blue,
+          ),
+        ),
+      ],
     );
   }
 }
@@ -192,11 +222,13 @@ class _CustomGoogleMap extends StatelessWidget {
   final CameraPosition initialPosition;
   final Circle circle;
   final Marker marker;
+  final MapCreatedCallback onMapCreated;
 
   const _CustomGoogleMap({
     required this.marker,
     required this.initialPosition,
     required this.circle,
+    required this.onMapCreated,
     Key? key,
   }) : super(key: key);
 
@@ -211,6 +243,7 @@ class _CustomGoogleMap extends StatelessWidget {
         myLocationButtonEnabled: false,
         circles: Set.from([circle]),
         markers: Set.from([marker]),
+        onMapCreated: onMapCreated,
       ),
     );
   }
