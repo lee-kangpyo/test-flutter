@@ -2,16 +2,19 @@ import 'package:calendar_scheduler/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class Calendar extends StatefulWidget {
-  const Calendar({Key? key}) : super(key: key);
 
-  @override
-  State<Calendar> createState() => _CalendarState();
-}
+class Calendar extends StatelessWidget {
+  final DateTime? selectedDay;
+  final DateTime focusedDay;
+  final OnDaySelected? onDaySelected;
 
-class _CalendarState extends State<Calendar> {
-  DateTime? selectedDay;
-  DateTime focusedDay = DateTime.now();
+  const Calendar({
+    required this.selectedDay,
+    required this.focusedDay,
+    required this.onDaySelected,
+
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,13 +62,7 @@ class _CalendarState extends State<Calendar> {
         ),
       ),
       //캘린더의 날짜를 클릭했을때 실행이되는 함수
-      onDaySelected: (DateTime selectedDay, DateTime focusedDay) {
-        print(selectedDay);
-        setState(() {
-          this.selectedDay = selectedDay;
-          this.focusedDay = selectedDay;
-        });
-      },
+      onDaySelected: onDaySelected,
       // onDaySelected에서 setState를 호출해서 캘린더를 다시 빌드할때
       // 현재 화면에 떠있는 모든 날짜를 대상으로 선택된 날짜 검증이 이루어진다.
       selectedDayPredicate: (DateTime date) {
