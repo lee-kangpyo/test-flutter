@@ -37,13 +37,31 @@ class _HomeScreenState extends State<HomeScreen> {
               scheduleCount: 4,
             ),
             const SizedBox(height: 8.0),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: ScheduleCard(
-                startTime: 9,
-                endTime: 12,
-                content: '프로그래밍 공부하기',
-                color: Colors.red,
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: ListView.separated(
+                  // itemCount에 10개를 지정해서 10개의 리스트가 보일것을 명시
+                  itemCount: 10,
+                  // itemBuilder -> separatorBuilder -> itemBuilder 순으로 실행이됨
+                  separatorBuilder: (context, index) {
+                    return const SizedBox(
+                      height: 8.0,
+                    );
+                  },
+                  // 각각의 카드마다 itemBuilder가 실행이됨 (index가 달라짐)
+                  // 강력한 기능은 모든 위젯를 만들어 두는게 아니라 스크롤할때마다
+                  // 새로운 위젯을 생성해서 밑에 붙여줌.
+                  // (100개를 생성해도 처음엔 10개만 스크롤 할때마다 추가로 생성)
+                  itemBuilder: (context, index) {
+                    return ScheduleCard(
+                      startTime: 9,
+                      endTime: 12,
+                      content: '프로그래밍 공부하기. ${index}',
+                      color: Colors.red,
+                    );
+                  },
+                ),
               ),
             ),
           ],
