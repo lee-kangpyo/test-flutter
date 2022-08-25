@@ -36,26 +36,88 @@ class Bucket {
 /// 홈 페이지
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Consumer<BucketService>(builder: (context, bucketService, child) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text("버킷 리스트"),
-        ),
-        body: Center(child: Text("버킷 리스트를 작성해 주세요.")),
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () {
-            // + 버튼 클릭시 버킷 생성 페이지로 이동
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => CreatePage()),
-            );
-          },
-        ),
-      );
-    });
+    return Consumer<BucketService>(
+      builder: (context, bucketService, child) {
+        List<Bucket> bucketList = bucketService.bucketList;
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text("버킷 리스트"),
+          ),
+          body: bucketList.isEmpty
+              ? const Center(child: Text("버킷 리스트를 작성해 주세요"))
+              : ListView.builder(
+                  itemCount: bucketList.length,
+                  itemBuilder: (context, index) {
+                    var bucket = bucketList[index];
+                    return ListTile(
+                      title: Text(
+                        bucket.job,
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: bucket.isDone ? Colors.grey : Colors.black,
+                          decoration: bucket.isDone
+                              ? TextDecoration.lineThrough
+                              : TextDecoration.none,
+                        ),
+                      ),
+                      trailing: IconButton(
+                        icon: Icon(CupertinoIcons.delete),
+                        onPressed: () {
+                          //삭제버튼
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return deleteConfrim(
+                                  context, bucketService, index);
+                            },
+                          );
+                        },
+                      ),
+                      onTap: () {
+                        bucket.isDone = !bucket.isDone;
+                        bucketService.updateBucket(bucket, index);
+                      },
+                    );
+                  },
+                ),
+          floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () {
+              // + 버튼 클릭시 버킷 생성 페이지로 이동
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => CreatePage()),
+              );
+            },
+          ),
+        );
+      },
+    );
+  }
+
+  AlertDialog deleteConfrim(BuildContext context, BucketService bucketService, int index) {
+    return AlertDialog(
+      title: Text("삭제함?"),
+      actions: [
+        TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text("취소")),
+        TextButton(
+            onPressed: () {
+              bucketService.deleteBucket(index);
+              Navigator.pop(context);
+            },
+            child: Text(
+              "삭제",
+              style: TextStyle(color: Colors.pink),
+            ))
+      ],
+    );
   }
 }
 
@@ -88,7 +150,7 @@ class _CreatePageState extends State<CreatePage> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-// 텍스트 입력창
+            // 텍스트 입력창
             TextField(
               controller: textController,
               autofocus: true,
@@ -98,19 +160,19 @@ class _CreatePageState extends State<CreatePage> {
               ),
             ),
             SizedBox(height: 32),
-// 추가하기 버튼
+            // 추가하기 버튼
             SizedBox(
               width: double.infinity,
               height: 48,
               child: ElevatedButton(
-                child: Text(
+                child: const Text(
                   "추가하기",
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                   ),
                 ),
                 onPressed: () {
-// 추가하기 버튼 클릭시
+                  // 추가하기 버튼 클릭시
                   String job = textController.text;
                   if (job.isEmpty) {
                     setState(() {
@@ -120,6 +182,9 @@ class _CreatePageState extends State<CreatePage> {
                     setState(() {
                       error = null; // 내용이 있는 경우 에러 메세지 숨기기
                     });
+
+                    BucketService bucketService = context.read<BucketService>();
+                    bucketService.createBucket(job);
                     Navigator.pop(context); // 화면을 종료합니다.
                   }
                 },

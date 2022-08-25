@@ -62,35 +62,7 @@ class _HomePageState extends State<HomePage> {
                   trailing: IconButton(
                     onPressed: () {
                       // 삭제 클릭
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: const Text("삭제하시겠습니까?"),
-                            actions: [
-                              TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  }, child: const Text("취소")),
-                              TextButton(
-                                onPressed: () {
-                                  setState(() {
-                                    // index에 해당하는 항목 삭제
-                                    bucketList.removeAt(index);
-                                  });
-                                  Navigator.pop(context);
-                                },
-                                child: const Text(
-                                  "삭제",
-                                  style: TextStyle(
-                                    color: Colors.pink,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          );
-                        },
-                      );
+                      showDeleteDialog(context, index);
                     },
                     icon: const Icon(CupertinoIcons.delete),
                   ),
@@ -119,6 +91,39 @@ class _HomePageState extends State<HomePage> {
           }
         },
       ),
+    );
+  }
+
+  void showDeleteDialog(BuildContext context, int index) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text("삭제하시겠습니까?"),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text("취소")),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  // index에 해당하는 항목 삭제
+                  bucketList.removeAt(index);
+                });
+                Navigator.pop(context);
+              },
+              child: const Text(
+                "삭제",
+                style: TextStyle(
+                  color: Colors.pink,
+                ),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }
