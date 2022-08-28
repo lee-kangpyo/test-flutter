@@ -2,6 +2,7 @@
 
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// 고양이 서비스
 class CatService extends ChangeNotifier {
@@ -9,10 +10,14 @@ class CatService extends ChangeNotifier {
   List<String> catImages = [];
 
   List<String> favoriteImages = [];
+  SharedPreferences prefs;
 
   // 생성자(Constructor)
-  CatService() {
+  CatService(this.prefs) {
     getRandomCatImages(); // api 호출
+
+    // prefs.getStringList("favorites")이 널이면 빈 배열을 셋팅
+    favoriteImages = prefs.getStringList("favorites") ?? [];
   }
 
   /// 랜덤 고양이 사진 API 호출
@@ -35,6 +40,9 @@ class CatService extends ChangeNotifier {
     } else {
       favoriteImages.add(catImage); // 새로운 사진 추가
     }
+
+    prefs.setStringList("favorites", favoriteImages);
+
     notifyListeners(); // 새로고침
   }
 }
